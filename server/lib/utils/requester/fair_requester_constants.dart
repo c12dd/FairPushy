@@ -1,6 +1,6 @@
 class FairRequesterConstants {
-  static const String baseUrl = 'http://127.0.0.1:8080';
-  static const String packingPlatformHost = 'http://127.0.0.1:8080';
+  static const String baseUrl = 'http://39.105.16.235:8080';
+  static const String packingPlatformHost = 'http://39.105.16.235:8080';
   static const String cdnFileHost = '';
   static const String cdnTokenHost = '';
 
