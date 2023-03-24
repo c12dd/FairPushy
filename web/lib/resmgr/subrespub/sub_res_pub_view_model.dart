@@ -35,7 +35,7 @@ class SubResPubViewModel extends BaseViewModel {
       // var dataDic = map['data'];
       // patchFileUrl = dataDic['url'];
 
-      patchFileUrl = "http:" + resultData.replaceAll('localhost', '192.168.0.106');
+      patchFileUrl = "http:" + resultData.replaceAll('localhost', '30.105.16.325');
     } else {
       uploadFileTip = '文件上传失败';
     }
