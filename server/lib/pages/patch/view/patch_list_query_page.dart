@@ -24,7 +24,7 @@ class GetPatchListPage extends FairServiceWidget {
     var list = Map<String, dynamic>();
     var appList = [];
     try {
-      await withTransaction<void>(() async {
+      await withTransaction<void>(action: () async {
         final dao = PatchDao();
         var rows = await dao.search(appId);
         for (int i = 0; i < rows.length; i++) {

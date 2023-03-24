@@ -22,7 +22,7 @@ class GetPatchPage extends FairServiceWidget {
     }
     var list;
     try {
-      await withTransaction<void>(() async {
+      await withTransaction<void>(action: () async {
         final dao = PatchDao();
         var rows = await dao.searchBundleId(bundleId);
         for (int i = 0; i < rows.length; i++) {

@@ -55,14 +55,14 @@ class OnlineBuild extends Entity<OnlineBuild> implements HandyJSON {
   );
 
   factory OnlineBuild.fromRow(Row row) {
-    final buildId = row.fieldAsInt('buildId');
-    final patchGitUrl = row.fieldAsString('patchGitUrl');
-    final patchGitBranch = row.fieldAsString('patchGitBranch');
-    final patchBuildName = row.fieldAsString('patchBuildName');
-    final flutterVersion = row.fieldAsString('flutterVersion');
-    final buildStatus = row.fieldAsInt('buildStatus');
-    final patchcdnUrl = row.fieldAsString('patchcdnUrl');
-    final errorLogUrl = row.fieldAsString('errorLogUrl');
+    final buildId = row.asInt('buildId');
+    final patchGitUrl = row.asString('patchGitUrl');
+    final patchGitBranch = row.asString('patchGitBranch');
+    final patchBuildName = row.asString('patchBuildName');
+    final flutterVersion = row.asString('flutterVersion');
+    final buildStatus = row.asInt('buildStatus');
+    final patchcdnUrl = row.asString('patchcdnUrl');
+    final errorLogUrl = row.asString('errorLogUrl');
 
     return OnlineBuild._internal(
       buildId: buildId,

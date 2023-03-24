@@ -17,7 +17,7 @@ Future<ResponseBaseModel> recordOperating(
     String appId, String operator, String content) async {
   var response;
   try {
-    await withTransaction<void>(() async {
+    await withTransaction<void>(action: () async {
       final dao = RecordDao();
       final record = Record(
           app_key: appId,

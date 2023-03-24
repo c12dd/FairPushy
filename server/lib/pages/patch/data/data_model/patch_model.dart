@@ -37,17 +37,17 @@ class Patch extends Entity<Patch> implements HandyJSON {
           flutterVersion: flutterVersion);
 
   factory Patch.fromRow(Row row) {
-    final app_id = row.fieldAsString('app_id');
-    final bundle_id = row.fieldAsInt('bundle_id');
-    final patch_url = row.fieldAsString('patch_url');
-    final status = row.fieldAsString('status');
-    final remark = row.fieldAsString('remark');
-    final bundleName = row.fieldAsString('bundle_name');
-    final bundleVersion = row.fieldAsString('bundle_version');
-    final updateTime = row.fieldAsString('update_time');
-    final patchGitUrl = row.fieldAsString('patchGitUrl');
-    final patchGitBranch = row.fieldAsString('patchGitBranch');
-    final flutterVersion = row.fieldAsString('flutterVersion');
+    final app_id = row.asString('app_id');
+    final bundle_id = row.asInt('bundle_id');
+    final patch_url = row.asString('patch_url');
+    final status = row.asString('status');
+    final remark = row.asString('remark');
+    final bundleName = row.asString('bundle_name');
+    final bundleVersion = row.tryString('bundle_version');
+    final updateTime = row.tryString('update_time');
+    final patchGitUrl = row.tryString('patchGitUrl');
+    final patchGitBranch = row.tryString('patchGitBranch');
+    final flutterVersion = row.tryString('flutterVersion');
 
     return Patch._internal(
         app_id: app_id,

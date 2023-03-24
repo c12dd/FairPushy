@@ -22,7 +22,7 @@ class CheckBuildStatusPage extends FairServiceWidget {
 
     var response = Map<String, dynamic>();
 
-    await withTransaction<void>(() async {
+    await withTransaction<void>(action: () async {
       final dao = OnlineBuildDao();
       var onlineBuild = await dao.getByBuildId(int.parse(buildId));
       if (onlineBuild != null) {

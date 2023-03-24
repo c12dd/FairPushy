@@ -11,7 +11,11 @@ dependencies:
     sdk: flutter
 
   cupertino_icons: ^1.0.4
-  fair:  2.8.0
+  fair:
+    git:
+      url: https://gitee.com/mirrors/Fair.git
+      ref: main
+      path: fair
   fair_pushy:
     path: ../
 
@@ -19,7 +23,19 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   build_runner: any
-  fair_compiler: ^1.1.0
+  fair_compiler:
+    git:
+      url: https://gitee.com/mirrors/Fair.git
+      ref: main
+      path: compiler
+
+dependency_overrides:
+  fair_version:
+    git:
+      url: https://gitee.com/mirrors/Fair.git
+      ref: main
+      path: flutter_version/flutter_3_3_0
+  collection: 1.17.0
 
 flutter:
   uses-material-design: true

@@ -33,7 +33,7 @@ class CreatePatchPage extends FairServiceWidget {
     }
     var response;
     try {
-      await withTransaction<void>(() async {
+      await withTransaction<void>(action: () async {
         final dao = PatchDao();
         if (bundleId == null) bundleId = "0";
         final patch = Patch(

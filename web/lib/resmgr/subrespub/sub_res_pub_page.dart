@@ -1,4 +1,5 @@
 import 'package:fair_management_web/base/base_view.dart';
+import 'package:fair_management_web/common/api.dart';
 import 'package:fair_management_web/network/base_result.dart';
 import 'package:fair_management_web/resmgr/res_mgr_view_model.dart';
 import 'package:fair_management_web/resmgr/subrespub/sub_res_pub_view_model.dart';

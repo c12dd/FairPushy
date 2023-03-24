@@ -32,7 +32,7 @@ class CreateProjectPage extends FairServiceWidget {
      */
     final appInfo = request_params?["appInfo"] ?? "";
     final appLogoUrl = request_params?["appLogoUrl"] ?? "";
-    await withTransaction<void>(() async {
+    await withTransaction<void>(action: () async {
       final dao = ProjectDao();
       final project = Project(
           app_name: appName,

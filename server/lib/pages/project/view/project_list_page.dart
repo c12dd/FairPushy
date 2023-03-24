@@ -16,7 +16,7 @@ class ProjectListPage extends FairServiceWidget {
     var response = Map<String, dynamic>();
     var appList = [];
 
-    await withTransaction<void>(() async {
+    await withTransaction<void>(action: () async {
       final dao = ProjectDao();
       final projectList = await dao.getAll();
       for (var project in projectList) {
@@ -24,7 +24,7 @@ class ProjectListPage extends FairServiceWidget {
       }
     }).catchError(((error, stack) {
       return ResponseError(msg: error);
-    }));;
+    }));
 
     response["appList"] = appList;
     return ResponseSuccess(data: response, msg: "项目列表查询成功");

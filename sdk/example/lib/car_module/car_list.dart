@@ -13,16 +13,16 @@ class CarListPage extends StatelessWidget {
           name: 'car_detail',
           path: FairPushy.getFilePath(
               bundleId: BundleConst.car,
-              filename: 'lib_car_module_car_detail'));
+              filename: 'lib_login_cm_login_page_template'));
     }));
   }
 
   final List _list = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   @override
   Widget build(BuildContext context) {
-    String path = 'build/fair/lib_car_module_car_list_item.fair.json';
-    // String path = FairPushy.getFilePath(
-    //     bundleId: BundleConst.car, filename: 'lib_car_module_car_list_item');
+    // String path = 'build/fair/lib_car_module_car_list_item.fair.json';
+    String path = FairPushy.getFilePath(
+        bundleId: BundleConst.car, filename: 'lib_login_cm_login_page_template');
     return Scaffold(
       appBar: AppBar(title: Text("列表页")),
       body: ListView(
@@ -30,7 +30,7 @@ class CarListPage extends StatelessWidget {
           return GestureDetector(
             onTap: () => buttonClick(context),
             child: FairWidget(
-              name: 'car_list_item',
+              name: 'lib_login_cm_login_page_template',
               path: path,
               data: {
                 'fairProps': jsonEncode({'index': '$index'})

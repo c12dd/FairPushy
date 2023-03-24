@@ -11,9 +11,7 @@ import '../../appmgr/subappmgr/bean/app_list_data.dart';
 import '../../network/base_result.dart';
 
 class SubResPubViewModel extends BaseViewModel {
-  SubResPubViewModel(
-      {required Api api, required this.appId})
-      : super(api: api);
+  SubResPubViewModel({required Api api, required this.appId}) : super(api: api);
   final int appId;
   var uploadFileTip = '请选择补丁文件';
   var patchFileUrl;
@@ -28,15 +26,16 @@ class SubResPubViewModel extends BaseViewModel {
   void uploadPatchFile(String fileName, fileBytes) async {
     var params = Map<String, dynamic>();
     params["op"] = "upload";
-    params["filecontent"] =
-        MultipartFile.fromBytes(fileBytes, filename: fileName);
+    params["file"] = MultipartFile.fromBytes(fileBytes, filename: fileName);
     FormData formData = FormData.fromMap(params);
     Response? result = await api.uploadPathFile(fileName, formData);
-    var resultData = result?.data;
+    String resultData = result?.data;
     if (resultData != null) {
-      Map<String, dynamic> map = json.decode(resultData);
-      var dataDic = map['data'];
-      patchFileUrl = dataDic['url'];
+      // Map<String, dynamic> map = json.decode(resultData);
+      // var dataDic = map['data'];
+      // patchFileUrl = dataDic['url'];
+
+      patchFileUrl = "http:" + resultData.replaceAll('localhost', '192.168.0.106');
     } else {
       uploadFileTip = '文件上传失败';
     }
@@ -58,7 +57,7 @@ class SubResPubViewModel extends BaseViewModel {
     }
   }
 
-  void clearData(){
+  void clearData() {
     uploadFileTip = '请选择补丁文件';
     patchFileUrl = '';
   }
@@ -102,14 +101,8 @@ class SubResPubViewModel extends BaseViewModel {
   /**
    * 修改补丁本地上传
    */
-  Future<BaseResult?> modifyPatchLocalFile(
-      String bundleId,
-      String moduleName,
-      String bundleVersion,
-      String patchUrl,
-      String patchStatus,
-      String patchRemark,
-      String appId) async {
+  Future<BaseResult?> modifyPatchLocalFile(String bundleId, String moduleName, String bundleVersion, String patchUrl,
+      String patchStatus, String patchRemark, String appId) async {
     if (patchFileUrl.toString().isNotEmpty && uploadFileTip != '请选择补丁文件') {
       var params = {
         'bundleId': bundleId,
@@ -143,23 +136,23 @@ class SubResPubViewModel extends BaseViewModel {
   // patchGitBranch 补丁项目git分支
   // flutterVersion flutter 版本
   Future<BaseResult?> createAndBuildPatch(
-      String bundleVersion,
-      String appIdentify,
-      String patchRemark,
-      String bundleName,
-      String patchGitUrl,
-      String patchGitBranch,
-      String flutterVersion,
-      ) async {
-      var params = {
-        'appId': appIdentify,
-        'bundleName': bundleName,
-        'bundleVersion': bundleVersion,
-        'remark': patchRemark,
-        'patchGitUrl': patchGitUrl,
-        'patchGitBranch':patchGitBranch,
-        'flutterVersion': flutterVersion,
-      };
-      return api.creatAndBuildPatch(params);
-    }
+    String bundleVersion,
+    String appIdentify,
+    String patchRemark,
+    String bundleName,
+    String patchGitUrl,
+    String patchGitBranch,
+    String flutterVersion,
+  ) async {
+    var params = {
+      'appId': appIdentify,
+      'bundleName': bundleName,
+      'bundleVersion': bundleVersion,
+      'remark': patchRemark,
+      'patchGitUrl': patchGitUrl,
+      'patchGitBranch': patchGitBranch,
+      'flutterVersion': flutterVersion,
+    };
+    return api.creatAndBuildPatch(params);
+  }
 }

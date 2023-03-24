@@ -24,11 +24,11 @@ class Record extends Entity<Record> implements HandyJSON {
           operation_time: operation_time = DateTime.now().toString());
 
   factory Record.fromRow(Row row) {
-    final app_key = row.fieldAsString('app_key');
-    final record_id = row.fieldAsInt('record_id');
-    final operator = row.fieldAsString('operator');
-    final operatio_content = row.fieldAsString('operatio_content');
-    final updateTime = row.fieldAsString('operation_time');
+    final app_key = row.asString('app_key');
+    final record_id = row.asInt('record_id');
+    final operator = row.asString('operator');
+    final operatio_content = row.asString('operatio_content');
+    final updateTime = row.asString('operation_time');
 
     return Record._internal(
         app_key: app_key,

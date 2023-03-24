@@ -46,7 +46,7 @@ class OnlineBuildPage extends FairServiceWidget {
     String patchcdnUrl = "";
     String errorLogUrl = "";
     int buildId = -1;
-    await withTransaction<void>(() async {
+    await withTransaction<void>(action: () async {
       final dao = OnlineBuildDao();
       final onlineBuild = OnlineBuild(
           patchGitUrl: patchGitUrl,

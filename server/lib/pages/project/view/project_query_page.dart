@@ -22,7 +22,7 @@ class GetProjectPage extends FairServiceWidget {
 
     var response = Map<String, dynamic>();
 
-    await withTransaction<void>(() async {
+    await withTransaction<void>(action: () async {
       final dao = ProjectDao();
       var rows = await dao.search(app_id);
       if (rows.length > 0) {

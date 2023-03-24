@@ -1,5 +1,7 @@
 import 'package:example/car_module/car_cate.dart';
+import 'package:example/car_module/car_list.dart';
 import 'package:example/string_const.dart';
+import 'package:fair/fair.dart';
 import 'package:flutter/material.dart';
 import 'package:fair_pushy/fair_pushy.dart';
 import 'card.dart';
@@ -12,7 +14,11 @@ class HomePage extends StatelessWidget {
           bundleid: BundleConst.car,
           // placeholder: (context) => Scaffold(body: Container()),
           onError: (code) => print(code),
-          targetWidgetBuilder: (context) => CarCatePage());
+          targetWidgetBuilder: (context) => FairWidget(
+              name: 'lib_login_cm_login_page_template',
+              path: FairPushy.getFilePath(
+                  bundleId: BundleConst.car,
+                  filename: 'lib_login_cm_login_page_template')));
     }));
   }
 

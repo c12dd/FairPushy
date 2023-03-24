@@ -34,11 +34,11 @@ class Project extends Entity<Project> implements HandyJSON {
   );
 
   factory Project.fromRow(Row row) {
-    final app_id = row.fieldAsInt('app_id');
-    final app_name = row.fieldAsString('app_name');
-    final app_description = row.fieldAsString('app_description');
-    final app_pic_url = row.fieldAsString('app_pic_url');
-    final create_time = row.fieldAsDateTime('create_time');
+    final app_id = row.asInt('app_id');
+    final app_name = row.asString('app_name');
+    final app_description = row.asString('app_description');
+    final app_pic_url = row.asString('app_pic_url');
+    final create_time = row.asDateTime('create_time');
 
     return Project._internal(
       app_id: app_id,

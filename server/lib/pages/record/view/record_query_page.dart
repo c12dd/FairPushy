@@ -23,7 +23,7 @@ class GetRecordPage extends FairServiceWidget {
     var list = Map<String, dynamic>();
     ;
     var recordList = [];
-    await withTransaction<void>(() async {
+    await withTransaction<void>(action: () async {
       final dao = RecordDao();
       var rows = await dao.search(appId);
       for (int i = 0; i < rows.length; i++) {

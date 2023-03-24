@@ -8,10 +8,17 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   FairPushy.init(
-      appID: '1001',
-      updateUrl: "https://fangfe.58.com/fairapp/module_patch_bundle",
-      debug: true);
+      appID: '28',
+      updateUrl: "http://192.168.0.106:8080/app/patch",
+      debug: false);
   // FairPushy.setProxy('PROXY 10.252.206.119:8888');
+
+  FairDevTools.config = FairDevConfig()
+    ..addEnv(OnlineEnvInfo(
+        envName: '环境1',
+        updateUrl: 'http://192.168.0.106:8080/app/patch',
+        readOnly: true))
+    ..addEnv(OnlineEnvInfo(envName: '环境2', updateUrl: '', readOnly: false));
 
   /// 如果使用了中间件，且中间件中目标页的传入方式是通过pageName的方式，则需要把目标页注册到FairPushy中，
   /// {pagename : (context, params) => Widget()}的方式
