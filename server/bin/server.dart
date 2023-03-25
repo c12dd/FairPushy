@@ -11,11 +11,12 @@ void main() async {
   LoggerInit();
 
   // Create  settings file.
-  SettingsYaml.fromString(content: settingsYaml, filePath: 'settings.yaml')
-      .save();
+  // SettingsYaml.fromString(content: settingsYaml, filePath: 'settings.yaml')
+  //     .save();
 
   /// Initialise the db pool
-  DbPool.fromSettings(pathToSettings: 'settings.yaml');
+  // DbPool.fromSettings(pathToSettings: 'settings.yaml');
+  DbPool.fromArgs(host: "localhost",user: "root",password: "zz3910629", database: 'fair',);
 
   runApp(
     GetServer(
