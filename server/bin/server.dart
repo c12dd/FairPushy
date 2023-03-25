@@ -17,7 +17,7 @@ void main() async {
 
   /// Initialise the db pool
   // DbPool.fromSettings(pathToSettings: 'settings.yaml');
-  DbPool.fromArgs(host: "localhost",user: "root",password: "zz3910629", database: 'fair',);
+  DbPool.fromArgs(host: "39.105.16.235",user: "root",password: "zz3910629", database: 'fair',);
 
 
   var appList = [];
@@ -32,7 +32,8 @@ void main() async {
       appList.add(project.toJson());
     }
   }).catchError(((error, stack) {
-    print("ProjectListPage:" + error.toString());
+    print("ProjectListPage error:" + error.toString());
+    print("ProjectListPage stack:" + stack.toString());
   }));
 
   print("ProjectListPage result:" + appList.toString());
