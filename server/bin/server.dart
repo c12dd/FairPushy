@@ -24,15 +24,18 @@ void main() async {
 
   await withTransaction<void>(action: () async {
     final dao = ProjectDao();
+    print("ProjectListPage dao:" + dao.toString());
     final projectList = await dao.getAll();
+    print("ProjectListPage projectList:" + projectList.toString());
     for (var project in projectList) {
+      print("ProjectListPage project:" + project.toString());
       appList.add(project.toJson());
     }
   }).catchError(((error, stack) {
-    print("ProjectListPage" + error.toString());
+    print("ProjectListPage:" + error.toString());
   }));
 
-  print(appList);
+  print("ProjectListPage result:" + appList.toString());
   runApp(
     GetServer(
       host: '0.0.0.0',
