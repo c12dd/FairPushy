@@ -3,8 +3,8 @@
  */
 const settingsYaml = '''
 mysql_user: root
-mysql_password: 1qaz!QAZ
-mysql_host: 127.0.0.1
+mysql_password: zz3910629
+mysql_host: localhost
 mysql_port: 3306
 mysql_database: fair
 ''';
