@@ -19,7 +19,7 @@ void main() async {
 
   runApp(
     GetServer(
-      host: '39.105.16.235',
+      host: '0.0.0.0',
       getPages: AppPages.routes,
       port: 8080,
     ),

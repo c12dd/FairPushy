@@ -23,6 +23,7 @@ class ProjectListPage extends FairServiceWidget {
         appList.add(project.toJson());
       }
     }).catchError(((error, stack) {
+      print("ProjectListPage" + error);
       return ResponseError(msg: error);
     }));
 
