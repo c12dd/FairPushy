@@ -29,7 +29,7 @@ void main() async {
       appList.add(project.toJson());
     }
   }).catchError(((error, stack) {
-    print("ProjectListPage" + error);
+    print("ProjectListPage" + error.toString());
   }));
 
   print(appList);
