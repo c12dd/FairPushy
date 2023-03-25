@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:HotUpdateService/pages/project/data/data_dao/project_model_dao.dart';
 import 'package:HotUpdateService/server/fair_server_pages.dart';
 import 'package:HotUpdateService/server/src/get_server.dart';
 import 'package:HotUpdateService/utils/fair_logger.dart';
@@ -18,6 +19,20 @@ void main() async {
   // DbPool.fromSettings(pathToSettings: 'settings.yaml');
   DbPool.fromArgs(host: "localhost",user: "root",password: "zz3910629", database: 'fair',);
 
+
+  var appList = [];
+
+  await withTransaction<void>(action: () async {
+    final dao = ProjectDao();
+    final projectList = await dao.getAll();
+    for (var project in projectList) {
+      appList.add(project.toJson());
+    }
+  }).catchError(((error, stack) {
+    print("ProjectListPage" + error);
+  }));
+
+  print(appList);
   runApp(
     GetServer(
       host: '0.0.0.0',
