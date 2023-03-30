@@ -17,12 +17,14 @@ void main() async {
 
   /// Initialise the db pool
   // DbPool.fromSettings(pathToSettings: 'settings.yaml');
-  DbPool.fromArgs(host: "39.105.16.235",user: "root",password: "zz3910629", database: 'fair',);
+  // DbPool.fromArgs(host: "39.105.16.235",user: "root",password: "zz3910629", database: 'fair',);
+  DbPool.fromArgs(host: "localhost",user: "root",password: "zz3910629", database: 'fair',minSize: 1,maxSize: 5);
 
 
   var appList = [];
 
   await withTransaction<void>(action: () async {
+
     final dao = ProjectDao();
     print("ProjectListPage dao:" + dao.toString());
     final projectList = await dao.getAll();
