@@ -43,7 +43,7 @@ void main() async {
     GetServer(
       host: '0.0.0.0',
       getPages: AppPages.routes,
-      port: 8080,
+      port: 7112,
     ),
   );
   print("FairServer ready...");

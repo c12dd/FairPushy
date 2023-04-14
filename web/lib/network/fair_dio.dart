@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'base_result.dart';
 
 class FairDio {
-  static const String baseUrl = 'http://localhost:8080/'; //测试地址
+  static const String baseUrl = 'http://localhost:7112/'; //测试地址
   static const String uploadBaseUrl = 'http://localhost:8085/'; //上传文件
 
   static const String baseUrlTo58 = ''; //测试环境

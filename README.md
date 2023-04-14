@@ -19,7 +19,7 @@ Fair是为Flutter设计的动态化框架，通过Fair Compiler工具对原生Da
 * 开发环境
   * 支持开发环境快速验证动态化效果     
   * 测试、正式环境一键切换  
-
+git 
 ### 🔧一起共建
 
 通过[Issue](https://github.com/wuba/FairPushy/issues)提交问题，贡献代码走Pull Request，管理员将对代码进行审核。
